@@ -1,0 +1,11 @@
+services:
+  app:
+    image: agentsdr-local-review-node:0.3.1
+    build:
+      context: .
+      dockerfile: Dockerfile.local-review-node
+    entrypoint: []
+    command: ["node", "server.js"]
+    environment:
+      DATABASE_URL: "postgres://agentsdr:${POSTGRES_PASSWORD:-changeme-postgres-password}@db:5432/agentsdr"
+      DATABASE_SSL: disable

@@ -1,0 +1,8 @@
+FROM ghcr.io/kandid-ai/agentsdr:0.3.1 AS release
+
+FROM node:24.19.0-bookworm-slim
+WORKDIR /app
+COPY --from=release /app /app
+ENV NODE_ENV=production
+EXPOSE 3000
+CMD ["node", "server.js"]

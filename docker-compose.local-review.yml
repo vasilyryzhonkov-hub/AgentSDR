@@ -1,0 +1,9 @@
+services:
+  app:
+    restart: "no"
+    environment:
+      APP_URL: "http://localhost:3301"
+    ports: !override
+      - "127.0.0.1:3301:3000"
+  db:
+    restart: "no"
